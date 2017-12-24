@@ -78,28 +78,15 @@ Route::group(['middleware' => 'App\Http\Middleware\check'],function(){
 	Route::post('admin/user/create', 'Admin\UserController@store');
 	Route::get('admin/user/{id}/edit', 'Admin\UserController@edit');
 	Route::PATCH('admin/user/show/{id}', 'Admin\UserController@update');
+
 });
 //Quang start
+Route::get('themgiohang/{id}', 'HomeController@getAddToCart');
+Route::get('xoagiohang/{id}', 'HomeController@getDelItemCart');
+Route::get('dathang', 'HomeController@getCheckout');
+Route::post('dathang', 'HomeController@postCheckout');
+Route::get('admin/order/', 'Admin\OrderController@getAll');
+Route::get('admin/cart/', 'Admin\OrderController@search');
 
-//Huế start
-Route::get('themgiohang/{id}', [
-	'as'=>'themgiohang',
-	'clients'=>'HomeController@getAddToCart'
-]);
 
-Route::get('del-cart/{id}', [
-	'as'=>'xoagiohang',
-	'clients'=>'HomeController@getDelItemCart'
-]);
-
-Route::get('dat-hang', [
-	'as'=>'dathang',
-	'clients'=>'HomeController@getCheckout'
-]);
-
-Route::post('dat-hang', [
-	'as'=>'dathang',
-	'uses'=>'HomeController@postCheckout'
-]);
-//End Hue
 

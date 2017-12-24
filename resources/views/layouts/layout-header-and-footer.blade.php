@@ -199,11 +199,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<a href="#"><img src="uploads/product/{{$product['item']['thumbnail']}}" alt=""></a>
 							
 							</div>
-							<div class="media col-xs-6 col-sm-6 col-md-6">
+							<div class="media col-xs-6 col-sm-6 col-md-6" style="padding-top: 8%">
+								<div class="col-xs-10 col-sm-10 col-md-10">
+									<div style="color: black" class="col-xs-12 col-sm-12 col-md-12">{{$product['item']['name']}}</div><br>
+									<div style="color: black" class="col-xs-12 col-sm-12 col-md-12">Số lượng: {{$product['count']}}</div><br>
+									<div style="color: black" class="col-xs-12 col-sm-12 col-md-12">Giá tiền: {{number_format($product['price'])}}</div>
+								</div>
+								<div class="col-xs-2 col-sm-2 col-md-2">
+									<a class="cart-item-delete" href="{{url('xoagiohang/'.$product['item']['id'])}}"><i class="fa fa-times"></i></a>
+								</div>
 								
-								<span style="color: black">{{$product['item']['name']}}</span><br>
-								<span style="color: black">Số lượng: {{$product['count']}}</span><br>
-								<span style="color: black">Giá tiền: {{number_format($product['price'])}}</span><a class="cart-item-delete" href="{{url('xoagiohang/'.$product['item']['id'])}}"><i class="fa fa-times"></i></a>
 							</div>
 						</div>
 					
@@ -216,7 +221,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 							<div class="center">
 								<div class="space10">&nbsp;</div>
-								<a href="{{ url('dathang') }}" class="beta-btn primary text-center">Đặt hàng <i class="fa fa-chevron-right"></i></a>
+								<a href="{{ url('dathang') }}" class="btn btn-primary">Đặt hàng <i class="fa fa-chevron-right"></i></a>
 							</div>
 						</div>	
         			</div>
@@ -346,15 +351,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			
 		});
 </script>	
-<!-- Huế start -->
-<script type="text/javascript">
-	function alertCart(key) {
 
-    $('#cart').modal('show');
-    
-}
-</script>
-<!-- Huế end -->
 <!-- //main slider-banner --> 
 </body>
 </html>

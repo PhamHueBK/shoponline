@@ -5,6 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Category;
 use App\Supplier;
+use Session;
+use App\Cart;
 
 class AppServiceProvider extends ServiceProvider
 {

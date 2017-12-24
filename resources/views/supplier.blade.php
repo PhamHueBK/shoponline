@@ -76,7 +76,7 @@
 																	<input type="submit" name="submit" value="Thêm Vào Giỏ Hàng" class="button" />
 																</fieldset>
 															</form>-->
-															<a href="javascript:;" onclick="alertCart({{ $item->id }})" class="btn btn-success">Thêm vào giỏ hàng</a>
+															<a href="{{ url('themgiohang/'.$item->id) }}" name="submit" value="" class="btn btn-success" >Thêm Vào Giỏ Hàng</a>
 														</div>
 													</div>
 												</figure>

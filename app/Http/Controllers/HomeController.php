@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
 use App\Supplier;
+use App\Cart;
+use Session;
 
 class HomeController extends Controller
 {
