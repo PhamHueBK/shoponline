@@ -21,6 +21,16 @@ class AppServiceProvider extends ServiceProvider
             $view->with('category',$category);
             $view->with('supplier',$supplier);
         });
+        //Giỏ hàng HuePham
+
+        view()->composer(['layouts.layout-header-and-footer','pay'],function($view){
+            if(Session('cart')){
+                $oldCart = Session::get('cart');
+                $cart = new Cart($oldCart);
+                $view->with(['cart'=>Session::get('cart'), 'product_cart'=>$cart->items,'totalPrice'=>$cart->totalPrice,'totalCount'=>$cart->totalCount]);
+            }
+        });
+        //HuePham
         view()->composer('search',function( $view ){
             $category = Category::all();
             $supplier = Supplier::all();

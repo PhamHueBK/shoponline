@@ -112,7 +112,7 @@
 															<h4 style="color: red" > <i> Tiết Kiệm {{ $item->discount}} đ</i></h4>
 														</div>
 														<div class="snipcart-details top_brand_home_details">
-															<form action="#" method="post">
+															<!--<form action="{{ url('themgiohang/'.$item->id) }}" method="post">
 																<fieldset>
 																	<input type="hidden" name="cmd" value="_cart" />
 																	<input type="hidden" name="add" value="1" />
@@ -125,7 +125,8 @@
 																	<input type="hidden" name="cancel_return" value=" " />
 																	<input type="submit" name="submit" value="Thêm Vào Giỏ Hàng" class="button" />
 																</fieldset>
-															</form>
+															</form>-->
+															<a href="{{ url('themgiohang/'.$item->id) }}" class="btn btn-success">Thêm vào giỏ hàng</a>
 														</div>
 													</div>
 												</figure>

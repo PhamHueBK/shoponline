@@ -81,5 +81,25 @@ Route::group(['middleware' => 'App\Http\Middleware\check'],function(){
 });
 //Quang start
 
+//Huế start
+Route::get('add-to-cart/{id}', [
+	'as'=>'themgiohang',
+	'clients'=>'HomeController@getAddToCart'
+]);
 
+Route::get('del-cart/{id}', [
+	'as'=>'xoagiohang',
+	'clients'=>'HomeController@getDelItemCart'
+]);
+
+Route::get('dat-hang', [
+	'as'=>'dathang',
+	'clients'=>'HomeController@getCheckout'
+]);
+
+Route::post('dat-hang', [
+	'as'=>'dathang',
+	'uses'=>'HomeController@postCheckout'
+]);
+//End Hue
 
