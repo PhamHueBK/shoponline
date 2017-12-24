@@ -82,7 +82,7 @@ Route::group(['middleware' => 'App\Http\Middleware\check'],function(){
 //Quang start
 
 //Huế start
-Route::get('add-to-cart/{id}', [
+Route::get('themgiohang/{id}', [
 	'as'=>'themgiohang',
 	'clients'=>'HomeController@getAddToCart'
 ]);

@@ -48,7 +48,11 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 | and wonderful application we have prepared for them.
 |
 */
-
+if(isset($_GET['mode'])){
+	$mode = $_GET['mode'];
+}
+if(isset($_GET['act']))
+	$mode = $_GET['mode'];
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
 $response = $kernel->handle(

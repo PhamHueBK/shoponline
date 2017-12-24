@@ -81,11 +81,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</ul>
 			</div>
 			<div class="product_list_header">  
-					<form action="#" method="post" class="last"> 
-						<input type="hidden" name="cmd" value="_cart">
-						<input type="hidden" name="display" value="1">
-						<button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
-					</form>  
+				<!--<form action="#" method="post" class="last"> 
+					<input type="hidden" name="cmd" value="_cart">
+					<input type="hidden" name="display" value="1">
+					<button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+				</form> -->
+				<a href="" data-toggle="modal" data-target="#cart" class="btn btn-primary"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>  Giỏ hàng của bạn </a>
 			</div>
 			<div class="clearfix"> </div>
 		</div>
@@ -178,6 +179,55 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</nav>
 			</div>
 		</div>	
+		<!-- Modal -->
+	<div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  		<div class="modal-dialog" role="document">
+    		<div class="modal-content">
+      			<div class="modal-header">
+        			<h5 class="modal-title" id="exampleModalLongTitle">Giỏ hàng của bạn</h5>
+        			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          				<span aria-hidden="true">&times;</span>
+        			</button>
+      			</div>
+      			<div class="modal-body col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+        			<div class="form-horizontal col-xs-12 col-sm-12 col-md-12" role="form">
+        			@if(Session::has('cart'))
+        			@foreach((Session::get('cart'))->items as $product)
+						<div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+							<div class="col-xs-6 col-sm-6 col-md-6">
+								
+								<a href="#"><img src="uploads/product/{{$product['item']['thumbnail']}}" alt=""></a>
+							
+							</div>
+							<div class="media col-xs-6 col-sm-6 col-md-6">
+								
+								<span style="color: black">{{$product['item']['name']}}</span><br>
+								<span style="color: black">Số lượng: {{$product['count']}}</span><br>
+								<span style="color: black">Giá tiền: {{number_format($product['price'])}}</span><a class="cart-item-delete" href="{{url('xoagiohang/'.$product['item']['id'])}}"><i class="fa fa-times"></i></a>
+							</div>
+						</div>
+					
+					@endforeach
+					@endif
+				
+						<div class="cart-caption col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+							<div class="cart-total text-right" style="color: black">Tổng tiền: <span class="cart-total-value" style="color: black">@if(Session::has('cart')){{number_format($totalPrice)}} @else 0 @endif  đồng</span></div>
+							<div class="clearfix"></div>
+
+							<div class="center">
+								<div class="space10">&nbsp;</div>
+								<a href="{{ url('dathang') }}" class="beta-btn primary text-center">Đặt hàng <i class="fa fa-chevron-right"></i></a>
+							</div>
+						</div>	
+        			</div>
+      			</div>
+      			<div class="modal-footer">
+        			<button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+        			<button type="button" id="ThemMoi" class="btn btn-primary">Thêm mới</button>
+      			</div>
+    		</div>
+  		</div>
+	</div>
 <!-- //header -->
 @yield('content')
 <!-- //footer -->
@@ -296,6 +346,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			
 		});
 </script>	
+<!-- Huế start -->
+<script type="text/javascript">
+	function alertCart(key) {
+
+    $('#cart').modal('show');
+    
+}
+</script>
+<!-- Huế end -->
 <!-- //main slider-banner --> 
 </body>
 </html>
