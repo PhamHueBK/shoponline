@@ -9,7 +9,7 @@
 		<div class="form-group">
 			<legend>Đặt hàng</legend>
 		</div>
-		
+		@guest
 		<div class="form-group">
 			<label>Họ tên</label>
 			<input type="txt" class="form-control" id="name" name="name" placeholder="Họ tên" required="true">
@@ -49,6 +49,43 @@
 				</div>
 			</div>
 		</div>
+		@else
+			<div class="form-group">
+				<label>Họ tên</label>
+				<input type="txt" class="form-control" id="name" name="name" placeholder="Họ tên" value="{{ Auth::user()->name }}" required="true">
+			</div>
+			
+			<div class="form-group">
+				<label class="col-xs-2 col-sm-2 col-md-2">Giới tính</label>
+				<input type="txt" class="form-control" id="name" name="name" placeholder="Họ tên" value="{{ Auth::user()->gender }}" required="true">
+			</div>
+
+			<div class="form-group">
+				<label>Email</label>
+				<input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{ Auth::user()->email }}" required="true" required="true">
+			</div>
+
+			<div class="form-group">
+				<label>Địa chỉ nhận hàng</label>
+				<input type="txt" value="{{ Auth::user()->address }}" class="form-control" id="address" name="address" placeholder="địa chi nhận hàng" required="true">
+			</div>
+
+			<div class="form-group">
+				<label>Số điện thoại</label>
+				<input type="txt" value="{{ Auth::user()->phone }}" class="form-control" id="phone" name="phone" placeholder="Số điện thoại" required="true">
+			</div>
+		@endguest
+		<div class="form-group">
+			<label class="col-xs-4 col-sm-4 col-md-4">Hình thức thanh toán</label>
+				<div class="col-xs-8 col-sm-8 col-md-8">
+					<select id="payment_method" name="payment_method" class="form-control" required="required">
+						<option name="payment_method" id="payment_method" value="Thành toán khi nhận hàng">Thành toán khi nhận hàng</option>
+						<option name="payment_method" id="payment_method" value="Chuyển khoản">Chuyển khoản</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		
 	</div>
 	<div class="col-xs-6 col-sm-6 col-md-6">
 		<table class="table table-hover">
